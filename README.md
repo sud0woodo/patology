@@ -19,7 +19,7 @@ Using the script is simple as there really are only 2 options; `rebuild` which r
 To dump the contents of the archive in the same folder:
 
 ```sh
-python3 ../synocrack.py --infile DSM_DS920+_69057.pat --dump
+python3 patology.py --infile DSM_DS920+_69057.pat --dump
 2024-04-18 21:19:47 - INFO - Opening archive: DSM_DS920+_69057.pat
 2024-04-18 21:19:47 - INFO - Verified magic: 0xadbeef
 2024-04-18 21:19:47 - INFO - Verified signature: <redacted>
@@ -43,7 +43,7 @@ python3 ../synocrack.py --infile DSM_DS920+_69057.pat --dump
 To rebuild the `tar` archive and write this to the specified output file:
 
 ```sh
-python3 ../synocrack.py --infile DSM_DS920+_69057.pat --rebuild DSM_DS920+_69057.tar
+python3 patology.py --infile DSM_DS920+_69057.pat --rebuild DSM_DS920+_69057.tar
 2024-04-18 21:21:48 - INFO - Opening archive: DSM_DS920+_69057.pat
 2024-04-18 21:21:48 - INFO - Verified magic: 0xadbeef
 2024-04-18 21:21:48 - INFO - Verified signature: <redacted>
