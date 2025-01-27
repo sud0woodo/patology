@@ -4,12 +4,10 @@ Python script to decrypt Synology .pat files
 
 ## Installation
 
-To run the script you will need to install a version of `pysodium` that includes the `crypto_kdf_derive_from_key` implementation. At the time of writing this is not in the release available through PyPI and should be installed seperately from the [pysodium repository](https://github.com/stef/pysodium/tree/master).
-
 Install the other dependencies using:
 
 ```sh
-pip install dissect.cstruct msgpack
+pip install dissect.cstruct msgpack pysodium
 ```
 
 ## Usage
