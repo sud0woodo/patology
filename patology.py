@@ -104,7 +104,7 @@ def atol(s: str, size: int) -> int:
     Returns:
         The converted string as an integer.
     """
-    return int(s, size)
+    return int(s.strip() or "0", 8)
 
 
 class Synocrack:
@@ -395,7 +395,7 @@ class Synocrack:
 
         if needs_atol:
             # Convert the string to an integer for fields that have this set
-            value = atol(s=value, size=8)
+            value = atol(s=value, size=12)
 
         if field == "mode":
             # Convert the mode field to an integer value without atol
@@ -425,9 +425,8 @@ class Synocrack:
         )
 
         bytes_remaining = entry_size
-        bytes_read = 0
-        while bytes_read < bytes_remaining:
-            size = 0x400000 if bytes_remaining > 0x400000 else bytes_remaining
+        while bytes_remaining > 0:
+            size = min(0x400000, bytes_remaining)
             # For reasons unknown we add 17
             size += 17
 
@@ -444,9 +443,7 @@ class Synocrack:
                 return b""
 
             decrypted_buffer.append(decrypted)
-
-            bytes_remaining -= len(encrypted_buffer)
-            bytes_read += len(encrypted_buffer)
+            bytes_remaining -= len(decrypted)
 
         return b"".join(decrypted_buffer)
 
