@@ -104,7 +104,7 @@ def atol(s: str, size: int) -> int:
     Returns:
         The converted string as an integer.
     """
-    return int(s, size)
+    return int(s.strip() or "0", 8)
 
 
 class Synocrack:
